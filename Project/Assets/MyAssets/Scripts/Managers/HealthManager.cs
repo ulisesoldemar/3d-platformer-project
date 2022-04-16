@@ -12,7 +12,8 @@ public class HealthManager : MonoBehaviour
     int _currentHealth;
     [SerializeField]
     float _invincibleLength;
-    float _invincibleCount;
+    private float _invincibleCount;
+    public Sprite[] healthBarImages;
 
     void Awake()
     {
@@ -21,7 +22,7 @@ public class HealthManager : MonoBehaviour
 
     void Start()
     {
-        _currentHealth = _maxHealth;
+        ResetHealth();
     }
 
     // void Update()
@@ -111,11 +112,14 @@ public class HealthManager : MonoBehaviour
                 _invincibleCount = _invincibleLength;
             }
         }
+        UpdateUI();
     }
 
     public void ResetHealth()
     {
         _currentHealth = _maxHealth;
+        UIManager.Instance.healtImage.enabled = true;
+        UpdateUI();
     }
 
     public void AddHealth(int amount)
@@ -124,5 +128,41 @@ public class HealthManager : MonoBehaviour
         {
             _currentHealth += amount;
         }
+
+        UpdateUI();
     }
+
+    public void UpdateUI()
+    {
+        UIManager.Instance.healtText.text = _currentHealth.ToString();
+
+        switch(_currentHealth)
+        {
+            case 5:
+                UIManager.Instance.healtImage.sprite = healthBarImages[4];
+                break;
+            case 4:
+                UIManager.Instance.healtImage.sprite = healthBarImages[3];
+                break;
+            case 3:
+                UIManager.Instance.healtImage.sprite = healthBarImages[2];
+                break;
+            case 2:
+                UIManager.Instance.healtImage.sprite = healthBarImages[1];
+                break;
+            case 1:
+                UIManager.Instance.healtImage.sprite = healthBarImages[0];
+                break;
+            case 0:
+                UIManager.Instance.healtImage.enabled = false;
+                break;
+        }
+    }
+
+    public void PlayerKilled()
+    {
+        _currentHealth = 0;
+        UpdateUI();
+    }
+
 }

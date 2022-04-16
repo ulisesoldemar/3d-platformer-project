@@ -16,21 +16,30 @@ public class UIManager : MonoBehaviour
     float _fadeSpeed;
     public bool FadeToBlack { get; set; }
     public bool FadeFromBlack { get; set; }
+    //Texto que almacena la cantida de hits restantes
+    public Text healtText;
+    //Sprite de salud
+    public Image healtImage;
+    //Texto que almacena la cantidad de monedas actuales
+    public Text coinText;
+    //Pantallas de pausa y opciones
+    public GameObject pauseScreen, optionsScreen;
+    //Controladores de volumen para música y SFX
+    public Slider musicVolSlider, sfxVolSlider;
 
     void Awake()
     {
         Instance = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         if (_blackScreen == null)
         {
-            Debug.LogWarning("No hay asignada una imagen para desvancer");
+            Debug.LogWarning("No hay asignada una imagen para desvanecer");
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         // Se activa la transición hacia el negro
@@ -70,5 +79,41 @@ public class UIManager : MonoBehaviour
                 FadeFromBlack = false;
             }
         }
+    }
+
+    //Manega el pausado y despausado del juego
+    public void Resume()
+    {
+        GameManager.Instance.PauseUnpause();
+    }
+    //Activa pantalla de opciones
+    public void OpenOptions()
+    {
+        optionsScreen.SetActive(true);
+    }
+    //Desactiva pantalla de opciones
+    public void CloseOptions()
+    {
+        optionsScreen.SetActive(false);
+    }
+    //Pantalla de selección de nivel
+    public void LevelSelect()
+    {
+
+    }
+    //Pantalla del menú principal
+    public void MainMenu()
+    {
+
+    }
+    //Establece el volumen de la música
+    public void SetMusicLevel()
+    {
+        AudioManager.instance.SetMusicLevel();
+    }
+    //Establece el volumen de los SFX
+    public void SetSFXLevel()
+    {
+        AudioManager.instance.SetSFXLevel();
     }
 }

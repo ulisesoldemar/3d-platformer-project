@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     float _verticalInput;
     float _horizontalInput;
     Vector3 _moveDirection;
+    public bool stopMove;
     #endregion
 
     #region Jump
@@ -60,6 +61,8 @@ public class PlayerController : MonoBehaviour
     Vector2 _knockBackPower;
     bool _isKnocking;
     float _knockBackCount;
+    //Fuerza de knockback tras golpear enemigo
+    public float bounceForce = 8;
     #endregion
     
     void Awake()
@@ -93,7 +96,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Si no se recibe daño
-        if (!_isKnocking)
+        if (!_isKnocking && !stopMove)
         {
             #region Movement
             float yStore = _moveDirection.y;
@@ -122,6 +125,15 @@ public class PlayerController : MonoBehaviour
             }
             #endregion
         }
+        //Función para desactivar el movimiento del jugador
+        if (stopMove)
+        {
+            _moveDirection.x = 0;
+            _moveDirection.y = 0;
+            _moveDirection.z = 0;
+            _characterController.Move(_moveDirection);
+        }
+
         Move();
         AnimatePlayer();
     }
@@ -196,5 +208,11 @@ public class PlayerController : MonoBehaviour
     {
         _isKnocking = true;
         _knockBackCount = _knockBackLength;
+    }
+    //Controla el knockback al golpear enemigo
+    public void Bounce()
+    {
+        _moveDirection.y = bounceForce;
+        _characterController.Move(_moveDirection * Time.deltaTime);
     }
 }
