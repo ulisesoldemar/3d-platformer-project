@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     float _jumpForce;
     bool _jumpRequest;
     bool _canDoubleJump;
+    private int _avaliableJumps = 0, _maxJumps = 2;
     #endregion
 
     #region Gravity
@@ -109,7 +110,10 @@ public class PlayerController : MonoBehaviour
             #endregion
 
             #region Jump
-            _jumpRequest = Input.GetButtonDown("Jump");
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                _jumpRequest = true;
+            }
             #endregion
         }
         else
@@ -142,7 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         #region Jump
         // Si el jugador se encuentra en el piso
-        if (_characterController.isGrounded)
+        /*if (_characterController.isGrounded)
         {
             // Solamente puede haber doble salto si se salta una primera vez
             _canDoubleJump = false;
@@ -163,8 +167,26 @@ public class PlayerController : MonoBehaviour
         {
             _moveDirection.y = _jumpForce;
             _canDoubleJump = false;
+        }*/
+        #endregion
+
+        #region Salto
+        if (_jumpRequest)
+        {
+            _moveDirection.y = _jumpForce;
+            _avaliableJumps--;
+            _jumpRequest = false;
         }
         #endregion
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Floor"))
+        {
+            _avaliableJumps = _maxJumps;
+
+        }
     }
 
     void LateUpdate()
@@ -190,6 +212,7 @@ public class PlayerController : MonoBehaviour
         // Se aplica la constante de física (9.8 por defecto en Unity) y se multiplica
         // por la escala de gravedad, de esta manera se modifica la potencia del salto
         // desde el editor de Unity
+
         _moveDirection.y += Physics.gravity.y * _gravityScale * Time.deltaTime;
         _characterController.Move(_moveDirection * Time.deltaTime);
     }
