@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public int levelEndMusic;
     //Nivel que se desea cargar a continuación
     public string levelToLoad;
+    //Variable para saber cuando respawneamos en el jefe final
+    public bool isRespawning;
 
     void Awake()
     {
@@ -52,6 +54,8 @@ public class GameManager : MonoBehaviour
     // CoRutina para dar tiempo de espera al momento de morir
     IEnumerator RespawnWaiter()
     {
+        //Efecto de sonido para cuando se hace daño el player
+        AudioManager.instance.PlaySFX(5);
         // Se "apaga" el personaje
         PlayerController.Instance.gameObject.SetActive(false);
         // Se desactiva el seguimiento de la cámara al personaje cuando muere
@@ -59,6 +63,8 @@ public class GameManager : MonoBehaviour
         CameraController.Instance.cmBrain.enabled = false;
         // Se habilita la transición hacia negro
         UIManager.Instance.FadeToBlack = true;
+
+        isRespawning = true;
 
         Instantiate(DeathEffect, PlayerController.Instance.transform.position + new Vector3(0f, 1f, 0f), PlayerController.Instance.transform.rotation);
 
@@ -75,6 +81,8 @@ public class GameManager : MonoBehaviour
         PlayerController.Instance.gameObject.SetActive(true);
         // Se reinicia el contador de vidas
         HealthManager.Instance.ResetHealth();
+
+        isRespawning = false;
     }
 
     // Setter del punto de respawn
@@ -113,14 +121,36 @@ public class GameManager : MonoBehaviour
             AudioManager.instance.PauseMusic(musicPlaying);
         }
     } 
-    //Secuencia de fin de nivel
+
+    //Corutina de fin de nivel
     public IEnumerator LevelEndWaiter()
     {
+        //Activar la musica de final de nivel
         AudioManager.instance.PlayMusic(levelEndMusic);
         //Activa trigger para desactivar el movimiento del jugador
         PlayerController.Instance.stopMove = true;
         //Tiempo de espera antes de continuar con la ejecución
         yield return new WaitForSeconds(4f);
+
+        //Desbloquear nivel con el nombre de la escena activa
+        PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_unlocked", 1);
+
+        //Verificar si el jugador ya agarro monedas
+        if (PlayerPrefs.HasKey(SceneManager.GetActiveScene().name + "_coins"))
+        {
+            //Verificar si las monedas actuales conseguidas son mayores que las guardadas en playerPrefs
+            if (currentCoins > PlayerPrefs.GetInt(SceneManager.GetActiveScene().name + "_coins"))
+            {
+                //Sobreescribir y guardar el numero total de monedas
+                PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", currentCoins);
+            }
+        }
+        else
+        {
+            //Si no hay ningun valor en PlayerPrefs de las monedas, de todas maneras mostramos las actuales
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name + "_coins", currentCoins);
+        }
+
         //Solicita al SceneManager cargar la siguiente escena
         SceneManager.LoadScene(levelToLoad);
     }

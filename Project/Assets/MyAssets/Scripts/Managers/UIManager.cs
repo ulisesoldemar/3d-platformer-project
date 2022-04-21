@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class UIManager : MonoBehaviour
     public GameObject pauseScreen, optionsScreen;
     //Controladores de volumen para música y SFX
     public Slider musicVolSlider, sfxVolSlider;
+
+    //Variables para cargar el canvas de mainMenu y levelselect
+    public string mainMenu, levelSelect;
 
     void Awake()
     {
@@ -99,12 +103,16 @@ public class UIManager : MonoBehaviour
     //Pantalla de selección de nivel
     public void LevelSelect()
     {
-
+        SceneManager.LoadScene(levelSelect);
+        //Evita que cuando cambia la escena se pause
+        Time.timeScale = 1f;
     }
     //Pantalla del menú principal
     public void MainMenu()
     {
-
+        SceneManager.LoadScene(mainMenu);
+        //Evita que cuando cambia la escena se pause
+        Time.timeScale = 1f;
     }
     //Establece el volumen de la música
     public void SetMusicLevel()

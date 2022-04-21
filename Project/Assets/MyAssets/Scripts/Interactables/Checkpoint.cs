@@ -43,6 +43,8 @@ public class Checkpoint : MonoBehaviour
             // El checkpoint se habilita visualmente
             _cpOff.SetActive(false);
             _cpOn.SetActive(true);
+            //SFX para el checkpoint
+            AudioManager.instance.PlaySFX(7);
         }
     }
 }

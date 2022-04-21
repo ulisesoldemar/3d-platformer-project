@@ -96,6 +96,8 @@ public class HealthManager : MonoBehaviour
         // Si no se es invencible
         if (_invincibleCount <= 0)
         {
+            //Efecto de sonido para cuando se hace daño el player
+            AudioManager.instance.PlaySFX(5);
             // En caso de daño, se reduce la salud en 1
             --_currentHealth;
             // Si llega a 0, el personaje muere y respawnea

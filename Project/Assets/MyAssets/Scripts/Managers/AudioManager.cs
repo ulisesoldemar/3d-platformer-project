@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour
     //Almacena los SFX
     public AudioSource[] sfx;
     public AudioMixerGroup musicMixer, sfxMixer;
+
+    ///Audio para tocar en el nivel
+    public int levelMusicToPlay;
     
 
     private void Awake()
