@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     //Fuerza de knockback tras golpear enemigo
     public float bounceForce = 8;
     #endregion
-    
+
     void Awake()
     {
         Instance = this;
@@ -209,11 +209,13 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        // Se aplica la constante de física (9.8 por defecto en Unity) y se multiplica
-        // por la escala de gravedad, de esta manera se modifica la potencia del salto
-        // desde el editor de Unity
-
-        _moveDirection.y += Physics.gravity.y * _gravityScale * Time.deltaTime;
+        if (!_characterController.isGrounded)
+        {
+            // Se aplica la constante de física (9.8 por defecto en Unity) y se multiplica
+            // por la escala de gravedad, de esta manera se modifica la potencia del salto
+            // desde el editor de Unity
+            _moveDirection.y += Physics.gravity.y * _gravityScale * Time.deltaTime;
+        }
         _characterController.Move(_moveDirection * Time.deltaTime);
     }
 
