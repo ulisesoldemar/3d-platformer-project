@@ -238,6 +238,6 @@ public class PlayerController : MonoBehaviour
     public void Bounce()
     {
         _moveDirection.y = bounceForce;
-        _characterController.Move(_moveDirection * Time.deltaTime);
+        _characterController.Move(_moveDirection * Time.deltaTime);  
     }
 }
