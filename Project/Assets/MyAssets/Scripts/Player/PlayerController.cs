@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
     float _jumpForce;
     bool _jumpRequest;
     bool _canDoubleJump;
-    private int _avaliableJumps = 0, _maxJumps = 2;
+    public int _avaliableJumps = 0, _maxJumps = 2;
     #endregion
 
     #region Gravity
@@ -171,23 +171,19 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region Salto
-        if (_jumpRequest)
+        
+        if (_jumpRequest && _avaliableJumps > 0)
         {
+            _jumpRequest = false;
             _moveDirection.y = _jumpForce;
             _avaliableJumps--;
-            _jumpRequest = false;
+            
         }
+        
+
         #endregion
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Floor"))
-        {
-            _avaliableJumps = _maxJumps;
-
-        }
-    }
 
     void LateUpdate()
     {
@@ -205,6 +201,14 @@ public class PlayerController : MonoBehaviour
             _playerModel.transform.rotation = Quaternion.Slerp(_playerModel.transform.rotation, newRotation, _rotateSpeed * Time.deltaTime);
         }
         #endregion
+        if (_characterController.collisionFlags == CollisionFlags.Below)
+        {
+            _avaliableJumps = _maxJumps;
+        }
+        if (_characterController.collisionFlags == CollisionFlags.None && _avaliableJumps == 0 && _jumpRequest == true)
+        {
+            _jumpRequest = false;
+        }
     }
 
     void Move()
