@@ -31,7 +31,7 @@ public class LSLevelEntry : MonoBehaviour
             //Desactivar el objeto con los materiales para cuando esta inactivo
             mapPointInactive.SetActive(false);
             //Desbloqueamos el nivel
-            _levelUnlocked = true;
+            _levelUnlocked = false;
         }
         else
         {
@@ -44,7 +44,7 @@ public class LSLevelEntry : MonoBehaviour
             _levelUnlocked = true;
         }
 
-        //Verificar si existe la etiqueta string "CurrentLevek"
+        //Verificar si existe la etiqueta string "CurrentLevel"
         if(PlayerPrefs.GetString("CurrentLevel") == levelName)
         {
             //Transformar al personaje para moverlo a la posicion del ultimo nivel terminado

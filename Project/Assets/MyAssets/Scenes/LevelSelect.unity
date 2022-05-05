@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 95d5aa529874d81188e3a658c1fae94c, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95d5aa529874d81188e3a658c1fae94c, type: 3}
       propertyPath: m_LocalScale.x
@@ -773,7 +773,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3b598ba286d4876f8b8c6322d8c515bc, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3b598ba286d4876f8b8c6322d8c515bc, type: 3}
       propertyPath: m_LocalScale.z
@@ -1192,7 +1192,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 85b77f7aea0399a2fa4ccb7f042f965b, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85b77f7aea0399a2fa4ccb7f042f965b, type: 3}
       propertyPath: m_LocalScale.x
@@ -1375,8 +1375,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLoadLevel: 0
-  levelName: Level_1
-  levelToCheck: Test_1
+  levelName: Level 1-2
+  levelToCheck: Level 1-1
   displayName: Level 1-2
   mapPointActive: {fileID: 507024907}
   mapPointInactive: {fileID: 1571638345}
@@ -1494,7 +1494,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e7720b5c77e16f980bf1403da95fd7b7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e7720b5c77e16f980bf1403da95fd7b7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1645,7 +1645,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 15ec126c74890119eb55af7dc61c3500, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 15ec126c74890119eb55af7dc61c3500, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2325,7 +2325,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 239ce8bcbeac488b28b243b80f1616a4, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 239ce8bcbeac488b28b243b80f1616a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2577,8 +2577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLoadLevel: 0
-  levelName: SampleScene
-  levelToCheck: Level_1
+  levelName: Level 2-1
+  levelToCheck: Level 1-2
   displayName: Level 2-1
   mapPointActive: {fileID: 1884863341}
   mapPointInactive: {fileID: 1765218122}
@@ -2621,7 +2621,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 239ce8bcbeac488b28b243b80f1616a4, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 239ce8bcbeac488b28b243b80f1616a4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2737,8 +2737,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1327311599}
-  m_LocalRotation: {x: 0.103888676, y: -0.8929132, z: -0.26627755, w: -0.34786412}
-  m_LocalPosition: {x: -20.196373, y: -25.769175, z: 64.97452}
+  m_LocalRotation: {x: 0.24719417, y: 0.072566025, z: 0.01853624, w: -0.96606714}
+  m_LocalPosition: {x: 5.648834, y: -49.2154, z: -7.7764072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2809,11 +2809,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400255342541617068, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029816874
+      value: 0.00000002981687
       objectReference: {fileID: 0}
     - target: {fileID: 4400255342541617068, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000031559486
+      value: -0.000000003155948
       objectReference: {fileID: 0}
     - target: {fileID: 4400255342818628010, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2837,11 +2837,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343233056660, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000002516753
+      value: 0.000000025167527
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343233056660, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000003127425
+      value: -0.000000003127424
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343237980084, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_FontData.m_Font
@@ -2865,11 +2865,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343599413704, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014979783
+      value: 0.000000014979783
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343599413704, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.8910667e-10
+      value: -7.8910667e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343608901952, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_IsActive
@@ -2881,11 +2881,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343812374403, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000014943502
+      value: 0.000000014943499
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343812374403, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000013070651
+      value: -0.0000000013070643
       objectReference: {fileID: 0}
     - target: {fileID: 4400255343998660009, guid: d54cde8c634a4a28d82f80009a6af79b, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -3044,7 +3044,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 85b77f7aea0399a2fa4ccb7f042f965b, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 85b77f7aea0399a2fa4ccb7f042f965b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4262,7 +4262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canLoadLevel: 0
   levelName: FinalBoss
-  levelToCheck: SampleScene
+  levelToCheck: Level 2-1
   displayName: Level 2-2
   mapPointActive: {fileID: 1507533342}
   mapPointInactive: {fileID: 432591053}
@@ -4492,7 +4492,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e027859abcb37aa4c851d2b5b171c21a, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e027859abcb37aa4c851d2b5b171c21a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4693,8 +4693,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLoadLevel: 0
-  levelName: Test_1
-  levelToCheck: 
+  levelName: Tutorial  1-1
+  levelToCheck: Tutorial  1-1
   displayName: Tutorial  1-1
   mapPointActive: {fileID: 1565958463}
   mapPointInactive: {fileID: 3855491025957964204}
