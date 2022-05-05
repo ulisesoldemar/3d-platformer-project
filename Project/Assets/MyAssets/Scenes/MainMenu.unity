@@ -375,12 +375,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acb840878972163448939731717d0fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstLevel: Test
+  firstLevel: Test_1
   levelSelect: LevelSelect
   continueButton: {fileID: 1215234096}
   levelNames:
-  - Test
   - Test_1
+  - Test
   - SampleScene
 --- !u!4 &49313297 stripped
 Transform:
@@ -1175,8 +1175,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 732707117}
-  m_LocalRotation: {x: 0.298323, y: 0.268151, z: 0.08772977, w: -0.9118125}
-  m_LocalPosition: {x: 8.7209, y: -10.535464, z: -8.3940935}
+  m_LocalRotation: {x: -0.17475761, y: -0.7479566, z: -0.21709694, w: 0.6024032}
+  m_LocalPosition: {x: 66.12075, y: -33.910492, z: 49.338448}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

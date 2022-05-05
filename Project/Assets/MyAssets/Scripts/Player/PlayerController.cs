@@ -193,12 +193,20 @@ public class PlayerController : MonoBehaviour
         // inputs de movimiento
         if (!_isKnocking && (_verticalInput != 0 || _horizontalInput != 0))
         {
-            // Se reestablece la rotación en X y Z para modificarla nuevamente
-            transform.rotation = Quaternion.Euler(0f, _playerCamera.transform.rotation.eulerAngles.y, 0f);
-            // LookRotation crea una rotación específica hacia forward o upward
-            Quaternion newRotation = Quaternion.LookRotation(new Vector3(_moveDirection.x, 0f, _moveDirection.z));
-            // Slerp nos permite mover y rotar de manera más suave
-            _playerModel.transform.rotation = Quaternion.Slerp(_playerModel.transform.rotation, newRotation, _rotateSpeed * Time.deltaTime);
+            Vector3 movement = new Vector3(_moveDirection.x, 0f, _moveDirection.z);
+            
+            //Si el personaje no se ha movido
+            if(movement != Vector3.zero)
+            {
+                //Hacer la rotacion
+                // Se reestablece la rotación en X y Z para modificarla nuevamente
+                transform.rotation = Quaternion.Euler(0f, _playerCamera.transform.rotation.eulerAngles.y, 0f);
+                // LookRotation crea una rotación específica hacia forward o upward
+                Quaternion newRotation = Quaternion.LookRotation(movement);
+                // Slerp nos permite mover y rotar de manera más suave
+                _playerModel.transform.rotation = Quaternion.Slerp(_playerModel.transform.rotation, newRotation, _rotateSpeed * Time.deltaTime);
+            }
+            
         }
         #endregion
         if (_characterController.collisionFlags == CollisionFlags.Below)
