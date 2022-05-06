@@ -14,7 +14,7 @@ public class LSLevelEntry : MonoBehaviour
     //Nombre del nivel para mostrar en el panel
     public string displayName;
     //Bandera para decirle si el nivel ha sido desbloqueado
-    private bool _levelUnlocked;
+    public bool _levelUnlocked;
     //Bandera para activar la pantalla negra cada que carga un nuevo nivel
     private bool _levelLoading;
 
@@ -31,7 +31,7 @@ public class LSLevelEntry : MonoBehaviour
             //Desactivar el objeto con los materiales para cuando esta inactivo
             mapPointInactive.SetActive(false);
             //Desbloqueamos el nivel
-            _levelUnlocked = false;
+            _levelUnlocked = true;
         }
         else
         {
@@ -41,7 +41,7 @@ public class LSLevelEntry : MonoBehaviour
             //activar el objeto con diseño inactivo
             mapPointInactive.SetActive(true);
             //No se ha pasado el nivel
-            _levelUnlocked = true;
+            _levelUnlocked = false;
         }
 
         //Verificar si existe la etiqueta string "CurrentLevel"
