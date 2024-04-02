@@ -4,33 +4,37 @@ using UnityEngine;
 
 public class EnemyHealthManager : MonoBehaviour
 {
-    //Vida máxima del enemigo
+    //Vida mï¿½xima del enemigo
     public int maxHealth = 1;
     //Vida actual del enemigo
     private int currentHealth;
     //Sonido de muerte del enemigo
     public int deathSound;
-    //Objetos para el efecto de muerte y drop de objetos(Hace falta modificar los assets para dropearlos en la posición correcta)
+    //Objetos para el efecto de muerte y drop de objetos(Hace falta modificar los assets para dropearlos en la posiciï¿½n correcta)
     public GameObject deathEffect, itemDrop;
+    Transform target;
 
-    //Asigna la cantidad de vida máxima a la vida actual
+    //Asigna la cantidad de vida mï¿½xima a la vida actual
     void Start()
     {
         currentHealth = maxHealth;
     }
 
-    //Función para manejar la salud del enemigo
+    //Funciï¿½n para manejar la salud del enemigo
     public void takeDamage()
     {
         currentHealth--;
-        //Reproducir sonido de muerte, efecto de muerte, destrucción del enemigo, dropeo de objetos y knockback al jugador
+        //Reproducir sonido de muerte, efecto de muerte, destrucciï¿½n del enemigo, dropeo de objetos y knockback al jugador
         if(currentHealth <= 0)
         {
+            float spawnHeight = 2.0f;
+            Vector3 spawn = new Vector3(transform.position.x, spawnHeight, transform.position.z);
+
             AudioManager.instance.PlaySFX(deathSound);
             Destroy(gameObject);
 
             Instantiate(deathEffect, transform.position, transform.rotation);
-            Instantiate(itemDrop, transform.position, transform.rotation);
+            Instantiate(itemDrop, spawn, Quaternion.Euler(90f, 0f, 0f));
         }
         PlayerController.Instance.Bounce();
     }
